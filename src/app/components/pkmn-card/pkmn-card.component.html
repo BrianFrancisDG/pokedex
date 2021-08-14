@@ -1,0 +1,12 @@
+<p-card header={{pokemonInfo.name}} [style]="{width: '360px'}" styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+        <img [src]="normalSpriteUrl">
+    </ng-template>
+    <div *ngFor= "let type of pokemonInfo.types">
+        <p>{{type}}</p>
+    </div>
+    <ng-template pTemplate="footer">
+        <!-- <p-button label="Save" icon="pi pi-check"></p-button>
+        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button> -->
+    </ng-template>
+</p-card>
