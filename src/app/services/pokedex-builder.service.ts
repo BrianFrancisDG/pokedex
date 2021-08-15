@@ -8,6 +8,7 @@ import { HttpService } from './http.service';
 export class PokedexBuilderService {
   // TODO: Clean up these variables
   pokemonFlavorText = '';
+  pokemonGenusText = '';
   pokemonHeight = '';
   pokemonWeight = '';
   pokemonNormalSpriteUrl = '';
@@ -15,11 +16,12 @@ export class PokedexBuilderService {
 
   constructor(private httpService: HttpService) {}
 
-  getPokedex(pokemonEntries: any[]) {
+  async getPokedex(pokemonEntries: any[]) {
     let pokedex = [];
     // get pokemon_entries
     // loop through each
-    pokemonEntries.forEach(async (pkmn) => {
+
+    for (const pkmn of pokemonEntries) {
       //// get name (pokemon_entries['pokemon_species']['name']), number (pokemon_entries['entry_number']) from pokemon_entries
       let pokemonName = pkmn['pokemon_species']['name'];
       let pokemonNumber = pkmn['entry_number'];
@@ -29,8 +31,11 @@ export class PokedexBuilderService {
       await this.getCurrentPokemonFlavorText(speciesUrl);
 
       //// make GET call to api for /{name}
-
-      await this.getCurrentPokemonTypesSpritesHeightWeight(pokemonName);
+      await this.getCurrentPokemonTypesSpritesHeightWeight(
+        pokemonName,
+        this.pokemonFlavorText,
+        this.pokemonGenusText
+      );
 
       //// build pokemon object
       let pokemon: Pokemon = {
@@ -39,16 +44,12 @@ export class PokedexBuilderService {
         flavorText: this.pokemonFlavorText,
         types: this.pokemonTypes,
         normalSprite: this.pokemonNormalSpriteUrl,
-        shinySprite: null,
+        genusText: this.pokemonGenusText,
         height: this.pokemonHeight,
         weight: this.pokemonWeight,
       };
       pokedex.push(pokemon);
-    });
-
-    //return pokedex[]
-
-    // sorting pokedex ascending by number
+    }
     return pokedex;
   }
 
@@ -56,6 +57,7 @@ export class PokedexBuilderService {
     return new Promise<void>((resolve) => {
       this.httpService.get(speciesUrl).subscribe((result) => {
         let flavorTextArray = result['flavor_text_entries'];
+        let genusTextArray = result['genera'];
 
         //// result['flavor_text_entries'], loop through where language['name'] == 'en' and version['name'] == 'blue', flavor_text
         let blueEnglishFT = flavorTextArray.find(
@@ -64,13 +66,22 @@ export class PokedexBuilderService {
             flavorText['version']['name'] == 'blue'
         );
 
+        let englishGenusObject = genusTextArray.find(
+          (genusText) => genusText['language']['name'] == 'en'
+        );
+
         this.pokemonFlavorText = blueEnglishFT['flavor_text'];
+        this.pokemonGenusText = englishGenusObject['genus'];
         resolve();
       });
     });
   }
 
-  getCurrentPokemonTypesSpritesHeightWeight(pokemonName) {
+  getCurrentPokemonTypesSpritesHeightWeight(
+    pokemonName,
+    flavorText,
+    genusText
+  ) {
     return new Promise<void>((resolve) => {
       this.httpService
         .get('https://pokeapi.co/api/v2/pokemon/' + pokemonName)
@@ -78,6 +89,9 @@ export class PokedexBuilderService {
           this.pokemonHeight = result['height'];
           this.pokemonWeight = result['weight'];
           this.pokemonNormalSpriteUrl = result['sprites']['front_default'];
+
+          this.pokemonFlavorText = flavorText;
+          this.pokemonGenusText = genusText;
 
           let resultTypeArray = result['types'];
           let types = [];

@@ -2,6 +2,7 @@
     <ng-template pTemplate="header">
         <img [src]="normalSpriteUrl">
     </ng-template>
+    <p>{{pokemonInfo.number}}</p>
     <div *ngFor= "let type of pokemonInfo.types">
         <p>{{type}}</p>
     </div>

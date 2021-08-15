@@ -3,8 +3,8 @@ export interface Pokemon {
   types: any[];
   number: string;
   normalSprite: string;
-  shinySprite: string;
   height: string;
   weight: string;
   flavorText: string;
+  genusText: string;
 }

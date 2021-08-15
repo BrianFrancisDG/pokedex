@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
+import { Pokemon } from './models/pokemon';
 import { HttpService } from './services/http.service';
 import { PokedexBuilderService } from './services/pokedex-builder.service';
 
@@ -10,7 +11,7 @@ import { PokedexBuilderService } from './services/pokedex-builder.service';
 })
 export class AppComponent {
   title = 'pkdx';
-  pokedex = [];
+  pokedex: Pokemon[] = [];
 
   constructor(
     private primengConfig: PrimeNGConfig,
@@ -22,14 +23,11 @@ export class AppComponent {
     this.primengConfig.ripple = true;
 
     // build pokedex object
-    this.httpService.getKantoDex().subscribe((kantoDex) => {
+    this.httpService.getKantoDex().subscribe(async (kantoDex) => {
       // TODO: Clean up hard coded kantoDex build
-      this.pokedex = this.pokedexBuilder.getPokedex(
+      this.pokedex = await this.pokedexBuilder.getPokedex(
         kantoDex['pokemon_entries']
       );
-
-      //this.pokedex.sort((a, b) => parseInt(a.number) - parseInt(b.number));
-      //console.log(this.pokedex);
     });
   }
 }
