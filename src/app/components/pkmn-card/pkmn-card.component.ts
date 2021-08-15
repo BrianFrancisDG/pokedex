@@ -21,6 +21,5 @@ export class PkmnCardComponent implements OnInit {
     this.normalSpriteUrl = this.sanitizer.bypassSecurityTrustUrl(
       this.pokemonInfo.normalSprite
     );
-    console.log(this.pokemonInfo);
   }
 }

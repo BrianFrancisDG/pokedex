@@ -1,7 +1,12 @@
-<p-card header={{pokemonInfo.name.toUpperCase()}} [style]="{width: '200px', height: '400px'}" styleClass="p-card-shadow">
-    <ng-template pTemplate="header">
+<p-card [style]="{width: '200px', height: '400px'}" styleClass="p-card-shadow">
+    <!-- <ng-template pTemplate="header">
         <img [src]="normalSpriteUrl">
-    </ng-template>
+    </ng-template> -->
+    <p>{{pokemonInfo.name.toUpperCase()}}</p>
+    <div class="pkmn-card-img">
+        <img [src]="normalSpriteUrl" [style]="{width: '150px', height: '150px'}">
+    </div>
+    
     <div class="pkmn-card-types">
         <div *ngFor= "let type of pokemonInfo.types">
             <p-chip label={{type.toUpperCase()}} styleClass="p-mr-2 {{type}}"></p-chip>
