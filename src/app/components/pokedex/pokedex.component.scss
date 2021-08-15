@@ -1,0 +1,9 @@
+.pokedex-grid {
+  display: grid;
+  /* grid-template-columns: repeat(6, 1fr); */
+  grid-template-rows: max-content;
+  row-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  justify-items: center;
+  align-items: center;
+}

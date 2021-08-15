@@ -12,9 +12,12 @@ import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
 import { PkmnCardComponent } from './components/pkmn-card/pkmn-card.component';
 import { CardModule } from 'primeng/card';
+import { MenubarModule } from 'primeng/menubar';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
+//import {MenuItem} from 'primeng/api';
 
 @NgModule({
-  declarations: [AppComponent, PkmnCardComponent],
+  declarations: [AppComponent, PkmnCardComponent, PokedexComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,6 +25,7 @@ import { CardModule } from 'primeng/card';
     HttpClientModule,
     CardModule,
     CommonModule,
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,7 +11,6 @@ import { PokedexBuilderService } from './services/pokedex-builder.service';
 })
 export class AppComponent {
   title = 'pkdx';
-  pokedex: Pokemon[] = [];
 
   constructor(
     private primengConfig: PrimeNGConfig,
@@ -21,13 +20,5 @@ export class AppComponent {
 
   ngOnInit() {
     this.primengConfig.ripple = true;
-
-    // build pokedex object
-    this.httpService.getKantoDex().subscribe(async (kantoDex) => {
-      // TODO: Clean up hard coded kantoDex build
-      this.pokedex = await this.pokedexBuilder.getPokedex(
-        kantoDex['pokemon_entries']
-      );
-    });
   }
 }
