@@ -5,16 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
-// component imports
-import { AppComponent } from './app.component';
-
 // primeng imports
 import { ButtonModule } from 'primeng/button';
-import { PkmnCardComponent } from './components/pkmn-card/pkmn-card.component';
 import { CardModule } from 'primeng/card';
 import { MenubarModule } from 'primeng/menubar';
+import { ChipModule } from 'primeng/chip';
+
+// component imports
+import { AppComponent } from './app.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
-//import {MenuItem} from 'primeng/api';
+import { PkmnCardComponent } from './components/pkmn-card/pkmn-card.component';
 
 @NgModule({
   declarations: [AppComponent, PkmnCardComponent, PokedexComponent],
@@ -26,6 +26,7 @@ import { PokedexComponent } from './components/pokedex/pokedex.component';
     CardModule,
     CommonModule,
     MenubarModule,
+    ChipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

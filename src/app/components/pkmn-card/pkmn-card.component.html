@@ -2,14 +2,17 @@
     <ng-template pTemplate="header">
         <img [src]="normalSpriteUrl">
     </ng-template>
-    <p>{{pokemonInfo.number}}</p>
     <div class="pkmn-card-types">
         <div *ngFor= "let type of pokemonInfo.types">
-            <p>{{type}}</p>
+            <p-chip label={{type.toUpperCase()}} styleClass="p-mr-2 {{type}}"></p-chip>
         </div>
     </div>
     <ng-template pTemplate="footer">
         <!-- <p-button label="Save" icon="pi pi-check"></p-button>
         <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button> -->
+        <div class="pkmn-card-footer-text">
+            <p>{{pokemonInfo.number}}</p>
+        </div>
+        
     </ng-template>
 </p-card>
