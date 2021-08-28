@@ -11,6 +11,7 @@ import { HttpService } from 'src/app/services/http.service';
 export class PkmnCardComponent implements OnInit {
   @Input('pokemon') pokemonInfo: Pokemon;
   normalSpriteUrl;
+  captured: boolean = false;
 
   constructor(
     private httpService: HttpService,
@@ -21,5 +22,9 @@ export class PkmnCardComponent implements OnInit {
     this.normalSpriteUrl = this.sanitizer.bypassSecurityTrustUrl(
       this.pokemonInfo.normalSprite
     );
+  }
+
+  capturedPokemon() {
+    this.captured = !this.captured;
   }
 }

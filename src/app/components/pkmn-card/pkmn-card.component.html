@@ -1,23 +1,32 @@
-<p-card [style]="{width: '200px', height: '400px'}" styleClass="p-card-shadow">
-    <!-- <ng-template pTemplate="header">
-        <img [src]="normalSpriteUrl">
-    </ng-template> -->
-    <p>{{pokemonInfo.name.toUpperCase()}}</p>
-    <div class="pkmn-card-img">
-        <img [src]="normalSpriteUrl" [style]="{width: '150px', height: '150px'}">
-    </div>
-    
-    <div class="pkmn-card-types">
-        <div *ngFor= "let type of pokemonInfo.types">
-            <p-chip label={{type.toUpperCase()}} styleClass="p-mr-2 {{type}}"></p-chip>
-        </div>
-    </div>
-    <ng-template pTemplate="footer">
-        <!-- <p-button label="Save" icon="pi pi-check"></p-button>
-        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button> -->
-        <div class="pkmn-card-footer-text">
-            <p>{{pokemonInfo.number}}</p>
+<div class="pkmn-card-container">
+    <p-card [style]="{width: '200px', height: '400px'}" styleClass="p-card-shadow">
+        <!-- <ng-template pTemplate="header">
+            <img [src]="normalSpriteUrl">
+        </ng-template> -->
+        <div class="pkmn-card-header">
+            <img src="../assets/images/pokeball.png" height="15px" class="pkmn-card-header-img" [ngClass]="captured ? 'pokeball-captured' : 'pokeball-not-captured'"/>
+            <h4>#{{pokemonInfo.number}} <span class="pkmn-card-header-name">{{pokemonInfo.name.toUpperCase()}}</span> </h4>
         </div>
         
-    </ng-template>
-</p-card>
+        <div class="pkmn-card-img-container">
+            <div class="pkmn-card-img">
+                <img [src]="normalSpriteUrl" [style]="{width: '150px', height: '150px'}">
+            </div>
+        </div>        
+        <div class="pkmn-card-types">
+            <div *ngFor= "let type of pokemonInfo.types">
+                <p-chip label={{type.toUpperCase()}} styleClass="p-mr-2 {{type}}"></p-chip>
+            </div>
+        </div>
+        <ng-template pTemplate="footer">            
+            <div class="pkmn-card-footer-captured-check">
+                <img src="../assets/images/pokeball.png" height="25px" class="pkmn-card-footer-captured-check-pokeball-img" [ngClass]="captured ? 'pokeball-captured' : 'pokeball-not-captured'" (click)= "capturedPokemon()"/>
+                <div>
+                    <p *ngIf="!captured"> Caught Pokemon?</p>
+                    <p *ngIf="captured" href=""> View Pkdx Entry</p>
+                </div>
+            </div>
+        </ng-template>
+    </p-card>    
+</div>
+

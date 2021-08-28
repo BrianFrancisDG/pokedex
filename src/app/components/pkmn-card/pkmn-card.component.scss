@@ -1,4 +1,4 @@
-@import "../../app.component.scss";
+@import "../../../assets/css/colors.scss";
 
 .pkmn-card-types {
   display: flex;
@@ -17,6 +17,54 @@
   flex: 1;
   justify-content: center;
   align-items: center;
+  background: white;
+}
+
+.pkmn-card-header {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.pkmn-card-header-img {
+  // margin-left: 10px;
+  margin-right: 10px;
+}
+
+.pokeball-not-captured {
+  filter: brightness(0.3);
+}
+
+.pokeball-captured {
+  filter: brightness(1);
+}
+
+.pkmn-card-footer-captured-check {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.pkmn-card-footer-captured-check-pokeball-img {
+  cursor: pointer;
+}
+
+.pkmn-card-container {
+  padding: 10px;
+  background: linear-gradient(90deg, #d7bb50 35%, #d7bb50 100%);
+  border-radius: 2%;
+}
+
+.pkmn-card-img-container {
+  padding: 10px;
+  background: #274678;
+  margin-bottom: 20px;
+  border-radius: 2%;
+}
+
+@mixin card-background-gradient($type-one, $type-two) {
+  background: linear-gradient(90deg, $type-one 35%, $type-two 100%);
 }
 
 :host ::ng-deep {
@@ -25,111 +73,111 @@
     color: white !important;
   }
   .p-chip.bug {
-    background-color: #92bc2c !important;
-    box-shadow: 0 0 20px #92bc2c;
+    background-color: $bug-color !important;
+    box-shadow: 0 0 20px $bug-color;
     color: white !important;
     /*background-image: url(./icons/bug.svg);*/
   }
 
   .p-chip.dark {
-    background-color: #595761 !important;
-    box-shadow: 0 0 20px #595761;
+    background-color: $dark-color !important;
+    box-shadow: 0 0 20px $dark-color;
     color: white !important;
   }
 
   .p-chip.dragon {
-    background-color: #0c69c8 !important;
-    box-shadow: 0 0 20px #0c69c8;
+    background-color: $dragon-color !important;
+    box-shadow: 0 0 20px $dragon-color;
     color: white !important;
   }
 
   .p-chip.electric {
-    background-color: #f2d94e !important;
-    box-shadow: 0 0 20px #f2d94e;
+    background-color: $electric-color !important;
+    box-shadow: 0 0 20px $electric-color;
     color: white !important;
   }
 
   .p-chip.fire {
-    background-color: #fba54c !important;
-    box-shadow: 0 0 20px #fba54c;
+    background-color: $fire-color !important;
+    box-shadow: 0 0 20px $fire-color;
     color: white !important;
   }
 
   .p-chip.fairy {
-    background-color: #ee90e6 !important;
-    box-shadow: 0 0 20px #ee90e6;
+    background-color: $fairy-color !important;
+    box-shadow: 0 0 20px $fairy-color;
     color: white !important;
   }
 
   .p-chip.fighting {
-    background-color: #d3425f !important;
-    box-shadow: 0 0 20px #d3425f;
+    background-color: $fighting-color !important;
+    box-shadow: 0 0 20px $fighting-color;
     color: white !important;
   }
 
   .p-chip.flying {
-    background-color: #a1bbec !important;
-    box-shadow: 0 0 20px #a1bbec;
+    background-color: $flying-color !important;
+    box-shadow: 0 0 20px $flying-color;
     color: white !important;
   }
 
   .p-chip.ghost {
-    background-color: #5f6dbc !important;
-    box-shadow: 0 0 20px #5f6dbc;
+    background-color: $ghost-color !important;
+    box-shadow: 0 0 20px $ghost-color;
     color: white !important;
   }
 
   .p-chip.grass {
-    background-color: #5fbd58 !important;
-    box-shadow: 0 0 20px #5fbd58;
+    background-color: $grass-color !important;
+    box-shadow: 0 0 20px $grass-color;
     color: white !important;
   }
 
   .p-chip.ground {
-    background-color: #da7c4d !important;
-    box-shadow: 0 0 20px #da7c4d;
+    background-color: $ground-color !important;
+    box-shadow: 0 0 20px $ground-color;
     color: white !important;
   }
 
   .p-chip.ice {
-    background-color: #75d0c1 !important;
-    box-shadow: 0 0 20px #75d0c1;
+    background-color: $ice-color !important;
+    box-shadow: 0 0 20px $ice-color;
     color: white !important;
   }
 
   .p-chip.normal {
-    background-color: #a0a29f !important;
-    box-shadow: 0 0 20px #a0a29f;
+    background-color: $normal-color !important;
+    box-shadow: 0 0 20px $normal-color;
     color: white !important;
   }
 
   .p-chip.p-chip.poison {
-    background-color: #b763cf !important;
-    box-shadow: 0 0 20px #b763cf;
+    background-color: $poison-color !important;
+    box-shadow: 0 0 20px $poison-color;
     color: white !important;
   }
 
   .p-chip.psychic {
-    background-color: #fa8581 !important;
-    box-shadow: 0 0 20px #fa8581;
+    background-color: $psychic-color !important;
+    box-shadow: 0 0 20px $psychic-color;
     color: white !important;
   }
 
   .p-chip.rock {
-    background-color: #c9bb8a !important;
-    box-shadow: 0 0 20px #c9bb8a;
+    background-color: $rock-color !important;
+    box-shadow: 0 0 20px $rock-color;
     color: white !important;
   }
 
   .p-chip.steel {
-    background-color: #5695a3 !important;
-    box-shadow: 0 0 20px #5695a3;
+    background-color: $steel-color !important;
+    box-shadow: 0 0 20px $steel-color;
     color: white !important;
   }
 
   .p-chip.water {
-    background-color: #539ddf !important;
-    box-shadow: 0 0 20px #539ddf;
+    background-color: $water-color !important;
+    box-shadow: 0 0 20px $water-color;
     color: white !important;
   }
 }

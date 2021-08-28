@@ -1,0 +1,123 @@
+// .icon {
+//     display: inline-block;
+//     border-radius: 100%;
+//     height: 30px;
+//     width: 30px;
+//     transition: 200ms all;
+//     margin-right: 5px;
+//   }
+
+//   .selected {
+//     color: white;
+//     filter: saturate(200%);
+//     transition: all;
+//     transition-duration: 1000;
+//   }
+
+//   .icon:hover {
+//     filter: saturate(200%);
+//     transform: scale(1.1);
+//     cursor: pointer;
+//   }
+
+//   .icon img {
+//     height: 60%;
+//     width: 60%;
+//     margin: 20%;
+//   }
+
+/*text-color*/
+$bug-color: #92bc2c;
+.bug-color {
+  color: #92bc2c;
+}
+
+$dark-color: #595761;
+.dark-color {
+  color: #595761;
+}
+
+$dragon-color: #0c69c8;
+.dragon-color {
+  color: #0c69c8;
+}
+
+$electric-color: #f2d94e;
+.electric-color {
+  color: #f2d94e;
+}
+
+$fire-color: #fba54c;
+.fire-color {
+  color: #fba54c;
+}
+
+$fairy-color: #ee90e6;
+.fairy-color {
+  color: #ee90e6;
+}
+
+$fighting-color: #d3425f;
+.fighting-color {
+  color: #d3425f;
+}
+
+$flying-color: #a1bbec;
+.flying-color {
+  color: #a1bbec;
+}
+
+$ghost-color: #5f6dbc;
+.ghost-color {
+  color: #5f6dbc;
+}
+
+$grass-color: #5fbd58;
+.grass-color {
+  color: #5fbd58;
+}
+
+$ground-color: #da7c4d;
+.ground-color {
+  color: #da7c4d;
+}
+
+$ice-color: #75d0c1;
+.ice-color {
+  color: #75d0c1;
+}
+
+$normal-color: #a0a29f;
+.normal-color {
+  color: #a0a29f;
+}
+
+$poison-color: #b763cf;
+.poison-color {
+  color: #b763cf;
+}
+
+$psychic-color: #fa8581;
+.psychic-color {
+  color: #fa8581;
+}
+
+$rock-color: #c9bb8a;
+.rock-color {
+  color: #c9bb8a;
+}
+
+$steel-color: #5695a3;
+.steel-color {
+  color: #5695a3;
+}
+
+$water-color: #539ddf;
+.water-color {
+  color: #539ddf;
+}
+
+.grid-color {
+  background-color: #f7f3f3ed;
+  color: #444;
+}

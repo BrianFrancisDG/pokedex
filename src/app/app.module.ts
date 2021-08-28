@@ -10,6 +10,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { MenubarModule } from 'primeng/menubar';
 import { ChipModule } from 'primeng/chip';
+import { CheckboxModule } from 'primeng/checkbox';
 
 // component imports
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { PkmnCardComponent } from './components/pkmn-card/pkmn-card.component';
     CommonModule,
     MenubarModule,
     ChipModule,
+    CheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
