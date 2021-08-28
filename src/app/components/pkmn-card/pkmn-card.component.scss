@@ -52,19 +52,123 @@
 
 .pkmn-card-container {
   padding: 10px;
-  background: linear-gradient(90deg, #d7bb50 35%, #d7bb50 100%);
+  // background: linear-gradient(90deg, #d7bb50 35%, #d7bb50 100%);
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(215, 187, 80, 1) 1%,
+  //   rgba(39, 70, 120, 1) 3%
+  // );
+  background: radial-gradient(
+    circle,
+    rgba(215, 187, 80, 1) 10%,
+    rgba(39, 70, 120, 1) 47%,
+    rgba(215, 187, 80, 1) 90%
+  );
+  // blue
+  //background: #274678;
+
   border-radius: 2%;
 }
 
 .pkmn-card-img-container {
   padding: 10px;
-  background: #274678;
+  // background: #274678;
   margin-bottom: 20px;
   border-radius: 2%;
 }
 
-@mixin card-background-gradient($type-one, $type-two) {
-  background: linear-gradient(90deg, $type-one 35%, $type-two 100%);
+@mixin card-background-gradient($type-one) {
+  background: linear-gradient(90deg, $type-one 35%, $type-one 100%);
+}
+
+.gradient-bug {
+  box-shadow: 0 0 10px $bug-color;
+  @include card-background-gradient($bug-color);
+}
+
+.gradient-dark {
+  box-shadow: 0 0 10px $dark-color;
+  @include card-background-gradient($dark-color);
+}
+
+.gradient-dragon {
+  box-shadow: 0 0 10px $dragon-color;
+  @include card-background-gradient($dragon-color);
+}
+
+.gradient-electric {
+  box-shadow: 0 0 10px $electric-color;
+  @include card-background-gradient($electric-color);
+}
+
+.gradient-fire {
+  box-shadow: 0 0 10px $fire-color;
+  @include card-background-gradient($fire-color);
+}
+
+.gradient-fairy {
+  box-shadow: 0 0 10px $fairy-color;
+  @include card-background-gradient($fairy-color);
+}
+
+.gradient-fighting {
+  box-shadow: 0 0 10px $fighting-color;
+  @include card-background-gradient($fighting-color);
+}
+
+.gradient-flying {
+  box-shadow: 0 0 10px $flying-color;
+  @include card-background-gradient($flying-color);
+}
+
+.gradient-ghost {
+  box-shadow: 0 0 10px $ghost-color;
+  @include card-background-gradient($ghost-color);
+}
+
+.gradient-grass {
+  box-shadow: 0 0 10px $grass-color;
+  @include card-background-gradient($grass-color);
+}
+
+.gradient-ground {
+  box-shadow: 0 0 10px $ground-color;
+  @include card-background-gradient($ground-color);
+}
+
+.gradient-ice {
+  box-shadow: 0 0 10px $ice-color;
+  @include card-background-gradient($ice-color);
+}
+
+.gradient-normal {
+  box-shadow: 0 0 10px $normal-color;
+  @include card-background-gradient($normal-color);
+}
+
+.gradient-poison {
+  box-shadow: 0 0 10px $poison-color;
+  @include card-background-gradient($poison-color);
+}
+
+.gradient-psychic {
+  box-shadow: 0 0 10px $psychic-color;
+  @include card-background-gradient($psychic-color);
+}
+
+.gradient-rock {
+  box-shadow: 0 0 10px $rock-color;
+  @include card-background-gradient($rock-color);
+}
+
+.gradient-steel {
+  box-shadow: 0 0 10px $steel-color;
+  @include card-background-gradient($steel-color);
+}
+
+.gradient-water {
+  box-shadow: 0 0 10px $water-color;
+  @include card-background-gradient($water-color);
 }
 
 :host ::ng-deep {
@@ -151,7 +255,7 @@
     color: white !important;
   }
 
-  .p-chip.p-chip.poison {
+  .p-chip.poison {
     background-color: $poison-color !important;
     box-shadow: 0 0 20px $poison-color;
     color: white !important;

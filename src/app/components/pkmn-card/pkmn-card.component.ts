@@ -12,6 +12,7 @@ export class PkmnCardComponent implements OnInit {
   @Input('pokemon') pokemonInfo: Pokemon;
   normalSpriteUrl;
   captured: boolean = false;
+  firstType: string;
 
   constructor(
     private httpService: HttpService,
@@ -22,6 +23,8 @@ export class PkmnCardComponent implements OnInit {
     this.normalSpriteUrl = this.sanitizer.bypassSecurityTrustUrl(
       this.pokemonInfo.normalSprite
     );
+
+    this.firstType = this.pokemonInfo.types[0];
   }
 
   capturedPokemon() {
